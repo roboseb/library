@@ -5,19 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <title>Seb's Library</title>
 </head>
 <body>
     <div id='container'>
-        <div id='header'>Header</div>
+        <div id='header'>Header
+            <button id='addbookbtn'>Add New Book</button>
+        </div>
         <div id='bookgrid'>
-            <div class='bookbox'>
-                <div  class="page"><div class="page pagebottom"></div></div>
-    
-                <div class='booktop'></div>
-                
-            </div>
 
+        </div>
+        <div id='addbookpanel'>
+            <form>
+                <legend>Add Book</legend>
+                <div id='formbox'>
+
+                    <label for="titleinput">Title</label>
+                    <input id='titleinput' type='text'>
+
+                    <label for="authorinput">Author</label>
+                    <input id='authorinput' type='text'>
+
+                    <label for="pageinput">Page count</label>
+                    <input id='pageinput' type='number'>
+
+                    <label for="readinput">Read it?</label>
+                    <input id='readinput' type='text'>
+                </div>
+                <button type='button' id='submitbookbtn'>Add book</button>
+
+            </form>
+            
         </div>
     </div>
     
