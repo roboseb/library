@@ -54,6 +54,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    
 }
 
 .booktop>img {
@@ -63,6 +64,7 @@ body {
 }
 
 .booktop>* {
+    
     opacity: 1;
 }
 
@@ -76,6 +78,8 @@ body {
     flex-direction: column;
     margin: 40px 0 30px 0;
     justify-content: space-between;
+    max-width: 100%;
+    
 }
 
 .secondbox {
@@ -92,15 +96,25 @@ body {
 
 .booktitle {
     font-size: 2.5rem;
+    
+    overflow-wrap: break-word;
 }
 
 .bookauthor {
     font-size: 1.5rem;
+    overflow-wrap: break-word;
 }
 
 .bookpages, .bookread {
     color: #555;
     padding: 0 10px 0 10px;
+}
+
+.booktop>button.editbtn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--accent);
 }
 
 .bookbox>.firstpage {
@@ -110,7 +124,7 @@ body {
 .page{
     box-sizing: border-box;
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     bottom: -3px;
 	border-top: 3px solid white;
 	border-left: 3px solid transparent;
@@ -133,7 +147,7 @@ body {
 .binding {
     box-sizing: border-box;
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     bottom: calc(var(--pagecount) * -6px);
     left: 6px;
 	border-top: calc(var(--pagecount) * 6px) solid var(--accent);
@@ -147,6 +161,7 @@ body {
 }
 
 #addbookpanel {
+    display: none;
     box-sizing: border-box;
     position: fixed;
     z-index: 2;
@@ -158,6 +173,10 @@ body {
     border-style: solid;
     border-radius: 5%;
     box-shadow: 0px 5px 5px grey;
+}
+
+#addbookpanel.addbookdisplay {
+    display: block;
 }
 
 form{
@@ -178,11 +197,22 @@ form>legend {
     grid-template-columns: auto auto;
     align-items: center;
     column-gap: 10px;
+    position: relative;
 }
 
-input {
+input, select {
+    border-style: none;
+    padding: 0;
     width: 100px;
     margin: 5px;
     background-color: var(--primary);
     outline: none;
+}
+
+#addbookpanel button#closebtn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border-style: none;
 }

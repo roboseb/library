@@ -19,21 +19,25 @@
 
         </div>
         <div id='addbookpanel'>
+            <button type='button' id='closebtn'><img src='images/x.svg'></button>
             <form>
                 <legend>Add Book</legend>
                 <div id='formbox'>
 
                     <label for="titleinput">Title</label>
-                    <input id='titleinput' type='text'>
+                    <input id='titleinput' type='text' maxlength="60" required>
 
                     <label for="authorinput">Author</label>
-                    <input id='authorinput' type='text'>
+                    <input id='authorinput' type='text' maxlength='60' required>
 
                     <label for="pageinput">Page count</label>
-                    <input id='pageinput' type='number'>
+                    <input id='pageinput' type='number' min="1" max="5000" required>
 
                     <label for="readinput">Read it?</label>
-                    <input id='readinput' type='text'>
+                    <select id="readinput" required>
+                        <option value="false">Unread</option>
+                        <option value="true">Read</option>
+                    </select>
                 </div>
                 <button type='button' id='submitbookbtn'>Add book</button>
 
