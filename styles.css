@@ -1,37 +1,89 @@
 :root {
     --secondary: #56432d;
     --primary: #e1dac7;
-    --backdrop: #e1aa46;
-    --accent: #65b0bb;
+    --backdrop: #dacba2;
+    --accent2: #65b0bb;
+    --accent: black;
+    --rowcount: 1;
 
 }
 
 body {
-    background-color: var(--backdrop);
     display: flex;
     flex-direction: column;
     margin: 0;
     font-family: 'Quicksand', sans-serif;
+    position: relative;
+    background-color: var(--backdrop);
 }
 
 #container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#container>#bottomlinesbox {
+    position: fixed;
+    z-index: -1;
+    left:80px;
+    background-image: url('images/linesbottom.png');
+    background-repeat: no-repeat repeat;
+    background-size: 190px;
+    height: 100vh;
+    width: 300px;
+}
+
+#linestop {
+    position: absolute;
+    left: 80px;
+    z-index: 1;
+    height: 17vh;
 }
 
 #header {
-    background-color:var(--secondary);
+    background-color:var(--accent2);
     height: 17vh;
     color: white;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#header>#addbookbtn {
+    background-color: var(--backdrop);
+    border-color: rgb(71, 71, 71);
+    padding: 10px;
+    border-width: 10px;
+    margin-right: 30px;
+}
+
+button {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+h1 {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    z-index: 100;
+    font-size: 2.7rem;
+    transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(298deg) rotateY(6deg) rotateZ(313deg) translateX(9px) translateY(0px) translateZ(0px) skewX(0deg) skewY(5deg);
+    
 }
 
 #bookgrid {
     
     display: grid;
     position: relative;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-template-rows: repeat(4, 400px);
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-rows: repeat(var(--rowcount), 400px);
     margin: 20px 20px 0px 20px;
     gap: 20px;
+    justify-content: center;
 
 }
 
@@ -54,6 +106,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+
     
 }
 
@@ -96,7 +149,7 @@ body {
 
 .booktitle {
     font-size: 2.5rem;
-    
+    font-weight: bold;
     overflow-wrap: break-word;
 }
 
@@ -112,9 +165,16 @@ body {
 
 .booktop>button.editbtn {
     position: absolute;
+    bottom: 40px;
+    right: 10px;
+    background-color: var(--accent2);
+}
+
+.booktop>button.deletebtn {
+    position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: var(--accent);
+    background-color: var(--accent2);
 }
 
 .bookbox>.firstpage {
@@ -167,7 +227,7 @@ body {
     z-index: 2;
     top: 30px;
     right: 30px;
-    height: 300px;
+
     width: 300px;
     background-color: var(--secondary);
     border-style: solid;
@@ -176,15 +236,17 @@ body {
 }
 
 #addbookpanel.addbookdisplay {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 form{
     height: 100%;
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    margin: 30px 0 30px 0;
     align-items: center;
-    justify-content: space-evenly;
     color: white;
 }
 
@@ -202,12 +264,22 @@ form>legend {
 
 input, select {
     border-style: none;
-    padding: 0;
+    padding: 2px;
     width: 100px;
     margin: 5px;
     background-color: var(--primary);
     outline: none;
 }
+
+form>#errormessage{
+    display: none;
+    height: 1.2rem;
+    background-color: var(--backdrop);
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+}
+
 
 #addbookpanel button#closebtn {
     position: absolute;
@@ -216,3 +288,6 @@ input, select {
     background-color: transparent;
     border-style: none;
 }
+
+
+

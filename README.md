@@ -20,6 +20,10 @@ April 18th, 2022
 
 	Wow, several hours later and still massively struggling, not sure what the issue is yet. Will have to take a break for now and come back tomorrow with a fresh set of eyes. I think I built this from the ground up in a way that would screw me over down the line. That or I don't understand objects yet. Probably the latter.
 
+April 19th, 2022
+
+	New day, new bright vision on the project. Started the day off by quickly realizing that the submit book button effects were being applied based on how many time you click the edit button, since I nested them for some reason. took that even listener out to be on its own and it behaved nicely pretty quickly. Cleaned up some of the related functions for consistency and readability, and now it all works as expected. With the new functions I set up yesterday, it was super easy to add an option to remove a book too. Since this doesn't actualy remove the book object, I could even have a trash bin to readd deleted books super easily. So yeah, I mostly understood how objects worked I was just underutilizing their power.
+
 ---To-Do---
 
 DONE-Scale binding to book size
@@ -27,9 +31,9 @@ DONE-Add pages based on book size
 DONE-Generate book info on book
 DONE-Input options for adding a new book
 -Clean up UI
--make an amount of book equal to (fix rows) 
+DONE-make an amount of book equal to (fix rows) 
 DONE-randomize or generate book art?
--Edit button for books
+DONE-Edit button for books
 -Make every other page jut out
 CANCEL-bottom margin for books based on page count
 -SHADOWS
@@ -37,4 +41,6 @@ DONE-form verification for add book panel
 -add 70s design squiggles and some big stylized numbers like in 70s architecture
 DONE-Input from hitting enter or hitting submit
 DONE-Limit pages added to bottom of book
--delete book button
+DONE-delete book button
+DONE-books are too big when alone, add max book width
+DONE-Add messages for invalid input

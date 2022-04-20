@@ -12,9 +12,14 @@
 </head>
 <body>
     <div id='container'>
-        <div id='header'>Header
-            <button id='addbookbtn'>Add New Book</button>
+        <div id="bottomlinesbox"></div>
+        <img src='images/linestop.png' id='linestop'>
+        
+        <div id='header'>
+            <h1>Seb's Library</h1>
+            <button id='addbookbtn'>Add</button>
         </div>
+        
         <div id='bookgrid'>
 
         </div>
@@ -26,20 +31,26 @@
 
                     <label for="titleinput">Title</label>
                     <input id='titleinput' type='text' maxlength="60" required>
+            
 
                     <label for="authorinput">Author</label>
                     <input id='authorinput' type='text' maxlength='60' required>
+                
 
                     <label for="pageinput">Page count</label>
-                    <input id='pageinput' type='number' min="1" max="5000" required>
+                    <input id='pageinput' type='number' min="1" max="10000" required>
+        
 
                     <label for="readinput">Read it?</label>
                     <select id="readinput" required>
                         <option value="false">Unread</option>
                         <option value="true">Read</option>
                     </select>
+                    
                 </div>
                 <button type='button' id='submitbookbtn'>Add book</button>
+                <div id='errormessage'></div>
+                
 
             </form>
             
