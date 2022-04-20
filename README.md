@@ -3,7 +3,15 @@ Library project for The Odin Project
 
 ---Features---
 
--
+-Add any books you like with their title, author, page count, and whether or not you've read them.
+
+-Edit exisiting book info.
+
+-Book counter
+
+-Responsive book grid
+
+-Nifty retro theming
 
 
 ---Devlog---
@@ -24,21 +32,27 @@ April 19th, 2022
 
 	New day, new bright vision on the project. Started the day off by quickly realizing that the submit book button effects were being applied based on how many time you click the edit button, since I nested them for some reason. took that even listener out to be on its own and it behaved nicely pretty quickly. Cleaned up some of the related functions for consistency and readability, and now it all works as expected. With the new functions I set up yesterday, it was super easy to add an option to remove a book too. Since this doesn't actualy remove the book object, I could even have a trash bin to readd deleted books super easily. So yeah, I mostly understood how objects worked I was just underutilizing their power.
 
+April 20th, 2022
+
+	Project was essentially done yesterday. Now I just have to clean it up a bit. Added some new fonts, and changed some colours around. Fixed placement of some buttons. Added a book counter, which was super easy since I already had a variable tracking cell count for the book grid and updating everytime it would change. Now just to add some cute button an input animations and I can move on with my life.
+
+	Was finishing up the new style updates when I noticed that the read/unread dropdown wasn't updating books properly. Found where the issue was, still don't understand what caused it. Simply rewrote how the book displays find what to show based on input, and it works fine now. Another example of where I may need to spend more time on objects.
+
 ---To-Do---
 
 DONE-Scale binding to book size
 DONE-Add pages based on book size
 DONE-Generate book info on book
 DONE-Input options for adding a new book
--Clean up UI
+DONE-Clean up UI
 DONE-make an amount of book equal to (fix rows) 
 DONE-randomize or generate book art?
 DONE-Edit button for books
--Make every other page jut out
+CANCEL-Make every other page jut out
 CANCEL-bottom margin for books based on page count
--SHADOWS
+CANCEL-SHADOWS
 DONE-form verification for add book panel
--add 70s design squiggles and some big stylized numbers like in 70s architecture
+DONE-add 70s design squiggles and some big stylized numbers like in 70s architecture
 DONE-Input from hitting enter or hitting submit
 DONE-Limit pages added to bottom of book
 DONE-delete book button

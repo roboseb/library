@@ -8,6 +8,16 @@
 
 }
 
+@font-face {
+    font-family: margin;
+    src: url(MarginDemo-7B6ZE.otf);
+}
+
+@font-face {
+    font-family: gvtime;
+    src: url(GvTimeRegular-4B1zD.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -42,6 +52,7 @@ body {
 }
 
 #header {
+    
     background-color:var(--accent2);
     height: 17vh;
     color: white;
@@ -49,15 +60,26 @@ body {
     max-width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 }
 
 #header>#addbookbtn {
+    z-index: 2;
+    font-size: 2rem;
+    font-family: margin, sans-serif;
     background-color: var(--backdrop);
     border-color: rgb(71, 71, 71);
+    border-radius: 10px;
     padding: 10px;
     border-width: 10px;
     margin-right: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+#header>#addbookbtn:hover {
+    background-color: var(--secondary);
+    color: white;
 }
 
 button {
@@ -65,14 +87,21 @@ button {
 }
 
 
-h1 {
+#header>h1 {
     position: absolute;
-    left: 50px;
+    left: min(1vw, 50px);
     top: 20px;
     z-index: 100;
     font-size: 2.7rem;
     transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(298deg) rotateY(6deg) rotateZ(313deg) translateX(9px) translateY(0px) translateZ(0px) skewX(0deg) skewY(5deg);
-    
+}
+
+#header>#bookcount{
+    z-index: 2;
+    font-size: 7rem;
+    font-family: gvtime, sans-serif;
+    margin-right: 30px;
+    margin-bottom: -35px;
 }
 
 #bookgrid {
@@ -129,7 +158,7 @@ h1 {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    margin: 40px 0 30px 0;
+    margin: 40px 0 50px 0;
     justify-content: space-between;
     max-width: 100%;
     
@@ -163,18 +192,29 @@ h1 {
     padding: 0 10px 0 10px;
 }
 
-.booktop>button.editbtn {
+.booktop>button, #submitbookbtn{
+    font-family: margin, sans-serif;
+    font-size: 1.2rem;
     position: absolute;
-    bottom: 40px;
-    right: 10px;
     background-color: var(--accent2);
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    bottom: 10px;
+    transition: all 0.3s;
+}
+
+.booktop>button:hover, #submitbookbtn:hover {
+    background-color: #336168;
+    color: white;
+}
+
+.booktop>button.editbtn {
+    right: 10px;
 }
 
 .booktop>button.deletebtn {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: var(--accent2);
+    right: 58px;
 }
 
 .bookbox>.firstpage {
@@ -231,6 +271,7 @@ h1 {
     width: 300px;
     background-color: var(--secondary);
     border-style: solid;
+    border-width: 10px;
     border-radius: 5%;
     box-shadow: 0px 5px 5px grey;
 }
@@ -251,7 +292,8 @@ form{
 }
 
 form>legend {
-    font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 2.1rem;
 }
 
 #formbox {
@@ -264,17 +306,28 @@ form>legend {
 
 input, select {
     border-style: none;
-    padding: 2px;
-    width: 100px;
+    padding: 5px;
+    width: 140px;
     margin: 5px;
     background-color: var(--primary);
     outline: none;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+input:hover, input:focus {
+    background-color: var(--accent2);
+}
+
+select{
+    width: 150px;
+    padding: 5px;
 }
 
 form>#errormessage{
     display: none;
     height: 1.2rem;
-    background-color: var(--backdrop);
+    background-color: rgb(253, 121, 69);
     border-radius: 10px;
     padding: 5px;
     color: black;
@@ -284,10 +337,15 @@ form>#errormessage{
 #addbookpanel button#closebtn {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 14px;
     background-color: transparent;
     border-style: none;
+    filter: invert(100%) sepia(15%) saturate(1295%) hue-rotate(215deg) brightness(119%) contrast(100%);
 }
 
+#submitbookbtn {
+    position: relative;
+    margin-bottom: -10px;
+}
 
 

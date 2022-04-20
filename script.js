@@ -11,14 +11,10 @@ function Book(title, author, pages, read) {
     this.art = coverArt[Math.floor(Math.random() * coverArt.length)];
     this.info = function() {
         let readAlert;
-        read ? readAlert = 'read' : readAlert = 'not read yet';
+        this.read ? readAlert = 'read' : readAlert = 'not read yet';
         return `${title} by ${author}, ${pages} pages, ${readAlert}`;
     }
-    this.readAlert = function() {
-        let readAlert;
-        read ? readAlert = 'Read' : readAlert = 'Unread';
-        return readAlert;
-    }
+    
     this.display = function() {
         displayBook(this);
         updateRows();
@@ -34,8 +30,8 @@ function addBook(book) {
     myLibrary.push(book);
 }
 
-const hatchet = new Book('Hatchet', 'Gary Paulsen', 4000, true);
-const testBook = new Book('Test Book', "Testson", 300, false)
+const hatchet = new Book('Hatchet', 'Gary Paulsen', 4000, 'Read');
+const testBook = new Book('Test Book', "Testson", 300, 'Unread')
 
 addBook(hatchet);
 addBook(testBook);
@@ -134,7 +130,7 @@ function displayBook(book) {
 
     const bookRead = document.createElement('div');
     bookRead.classList.add('bookinfo', 'bookread');
-    bookRead.innerText = book.readAlert();
+    bookRead.innerText = book.read;
     thirdBox.appendChild(bookRead);
 
     //Display extra pages based on book page count.
@@ -164,7 +160,6 @@ function displayBook(book) {
 
     //Add delete option to books.
     deleteBtn.addEventListener('click', () => {
-        console.log('wtf');
         book.delete();
     });
 
@@ -269,7 +264,7 @@ function makeBookFromInput() {
     let title = document.getElementById('titleinput').value;
     let author = document.getElementById('authorinput').value;
     let pages = document.getElementById('pageinput').value;
-    const read = document.getElementById('readinput').value;
+    let read = document.getElementById('readinput').value;
 
     const newBook = new Book(title, author, pages, read);
     addBook(newBook);
@@ -330,14 +325,6 @@ function updateLibraryDisplay(){
 
 hatchet.display();
 testBook.display();
-hatchet.display();
-testBook.display();
-hatchet.display();
-testBook.display();
-hatchet.display();
-testBook.display();
-hatchet.display();
-testBook.display();
 
 
 
@@ -351,13 +338,20 @@ function updateRows() {
     cellArray.forEach( () => {
         totalCells++;
     });
-    console.log(totalCells);
     const root = document.documentElement;
     
     const grid = document.getElementById('bookgrid');
     const gridComputedStyle = window.getComputedStyle(grid);
     const gridColumnCount = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
     root.style.setProperty('--rowcount', Math.ceil(totalCells/gridColumnCount));
+
+    const bookCount = document.getElementById('bookcount');
+    if (totalCells > 1 || totalCells === 0) {
+        bookCount.innerText = `${totalCells} Books`;
+    } else {
+        bookCount.innerText = `${totalCells} Book`;
+    }
+    
 }
 
 window.addEventListener('resize', () => {
