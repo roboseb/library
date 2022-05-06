@@ -3,24 +3,30 @@ const coverArt = ['images/face1.png', 'images/face2.png',
                     'images/rose.png', 'images/hand.png'];
 
 //Book constructor.
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read 
-    this.art = coverArt[Math.floor(Math.random() * coverArt.length)];
-    this.info = function() {
+class Book {
+
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read 
+        this.art = coverArt[Math.floor(Math.random() * coverArt.length)];
+    }
+
+
+    
+    info() {
         let readAlert;
         this.read ? readAlert = 'read' : readAlert = 'not read yet';
         return `${title} by ${author}, ${pages} pages, ${readAlert}`;
     }
     
-    this.display = function() {
+    display() {
         displayBook(this);
         updateRows();
     }
 
-    this.delete = function() {
+    delete() {
         deleteBook(this);
         updateRows();
     }
